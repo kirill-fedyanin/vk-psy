@@ -2,6 +2,8 @@ module VkApi
   class Base
     BASE_URL = 'https://api.vk.com/method/'
     VERSION = '5.63'
+    APP_TOKEN = ENV['APP_TOKEN']
+    USER_TOKEN= ENV['USER_TOKEN']
 
     def info
       @info ||= make_request

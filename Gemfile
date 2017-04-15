@@ -12,7 +12,7 @@ gem 'rails', '~> 5.0.1'
 #Added gems
 gem 'slim' # slimmer templates
 gem 'rest-client' # shorter requests
-
+gem 'figaro' # to hide the tokens
 
 # Initial set of gems
 # Use sqlite3 as the database for Active Record

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class VkApi::UsersSerializerTest < ActiveSupport::TestCase
+class VkApi::UserSerializerTest < ActiveSupport::TestCase
   def setup
     @serialized = VkApi::UserSerializer.new(info)
   end
