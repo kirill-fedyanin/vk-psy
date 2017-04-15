@@ -5,6 +5,10 @@ module VkApi
       @group_id = group_id
     end
 
+    def info
+      @info ||= make_request['items']
+    end
+
     private
 
     def params
