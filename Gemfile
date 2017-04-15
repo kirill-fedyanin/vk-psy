@@ -19,6 +19,12 @@ gem 'rubyzip', '~> 1.1.0'
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
 
+group :development do
+  gem 'capistrano', '~> 3.6'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-rbenv', '~> 2.0'
+end
+
 ### Initial set of gems ###
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
