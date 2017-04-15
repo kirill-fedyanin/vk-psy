@@ -9,12 +9,17 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 
-#Added gems
+### Added gems ###
 gem 'slim' # slimmer templates
 gem 'rest-client' # shorter requests
 gem 'figaro' # to hide the tokens
 
-# Initial set of gems
+#To generate excel
+gem 'rubyzip', '~> 1.1.0'
+gem 'axlsx', '2.1.0.pre'
+gem 'axlsx_rails'
+
+### Initial set of gems ###
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

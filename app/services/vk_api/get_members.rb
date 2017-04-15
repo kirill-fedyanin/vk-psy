@@ -14,7 +14,6 @@ module VkApi
     def params
       {
         group_id: @group_id,
-        count: 10,
         fields: [
           'bdate', 'city', 'country', 'universities', 'occupation', 'contacts'
         ],
