@@ -1,0 +1,20 @@
+module VkApi
+  class UserSerializer
+    attr_reader :user
+
+    def initialize(user)
+      @user = user
+    end
+
+    def to_s
+      hash.to_s
+    end
+
+    def hash
+      {
+        'name' => user['first_name'] + user['last_name'],
+        'bdate' => user['bdate']
+      }
+    end
+  end
+end

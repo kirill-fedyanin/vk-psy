@@ -20,7 +20,7 @@ module VkApi
     def make_request
       response = RestClient.post(method_url, params)
       @status = response.code
-      JSON.parse response.body
+      JSON.parse(response.body)['response']
     end
   end
 end
