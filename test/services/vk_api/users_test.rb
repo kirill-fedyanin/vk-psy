@@ -1,12 +1,8 @@
-# require 'test_helper'
-#
-# class UsersTest < ActiveSupport::TestCase
-# end
-#
+require 'test_helper'
 
-class VkApi::TestGetUsers < ActiveSupport::TestCase
+class VkApi::UsersTest < ActiveSupport::TestCase
   def setup
-    @getter = VkApi::GetUsers.new(1)
+    @getter = VkApi::GetUsers.new(['kirill.fedyanin'])
   end
 
   def test_get_user
