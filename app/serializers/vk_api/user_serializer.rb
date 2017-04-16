@@ -11,7 +11,10 @@ module VkApi
         'name' => name,
         'bdate' => user['bdate'],
         'city' => city,
-        'study' => study
+        'study' => "#{uni} / #{faculty}",
+        'uni' => uni,
+        'faculty' => faculty,
+        'about' => user['about']
       }
     end
 
@@ -27,11 +30,23 @@ module VkApi
       nil
     end
 
-    def study
-      uni = user['universities'].last
-      "#{uni['name']} /#{uni['faculty_name']}"
+    def uni
+      user['universities'].last['name']
     rescue
       nil
     end
+
+    def faculty
+      user['universities'].last['faculty_name']
+    rescue
+      nil
+    end
+
+    # def study
+    #   uni = user['universities'].last
+    #   "#{uni['name']} /#{uni['faculty_name']}"
+    # rescue
+    #   nil
+    # end
   end
 end
