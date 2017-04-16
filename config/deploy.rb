@@ -18,7 +18,7 @@ set :linked_files, %w{config/application.yml}
 set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.1.4'
+set :rbenv_ruby, '2.3.3'
 set :rbenv_path, ->{ "/home/#{fetch(:user)}/.rbenv" }
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

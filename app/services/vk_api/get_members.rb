@@ -9,22 +9,31 @@ module VkApi
       if result['count'].to_i < 1000
         result['items']
       else
-        users = result['items']
+        threads = []
+
+        @users = result['items']
         count = result['count'].to_i
         ((count - 1000)/1000.0).ceil.times do |offset|
-          @offset = (offset + 1) * 1000
-          users += make_request['items']
+          threads << Thread.new(offset) { |offset_t| @users << make_request(offset_t)['items'] }
         end
-        users
+        threads.map(&:join)
+        @users.flatten
       end
     end
 
     private
 
-    def params()
+    def make_request(offset=0)
+      response = RestClient.post(method_url, params(offset))
+      @status = response.code
+      JSON.parse(response.body)['response']
+    end
+
+
+    def params(offset)
       {
         group_id: @group_id,
-        offset: @offset || 0,
+        offset: offset,
         fields: [
           'bdate', 'city', 'country', 'universities', 'occupation', 'contacts',
           'about'
