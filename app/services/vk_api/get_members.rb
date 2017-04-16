@@ -14,7 +14,7 @@ module VkApi
         @users = result['items']
         count = result['count'].to_i
         ((count - 1000)/1000.0).ceil.times do |offset|
-          threads << Thread.new(offset) { |offset_t| @users << make_request(offset_t)['items'] }
+          threads << Thread.new(offset) { |offset_t| @users << make_request(offset_t*1000 + 1000)['items'] }
         end
         threads.map(&:join)
         @users.flatten
@@ -24,7 +24,12 @@ module VkApi
     private
 
     def make_request(offset=0)
+      # Vk api gives 'too many rps error'
+      sleep(offset/3000.0)
+
       response = RestClient.post(method_url, params(offset))
+      Rails.logger.info "*"*90
+      Rails.logger.info response.body
       @status = response.code
       JSON.parse(response.body)['response']
     end

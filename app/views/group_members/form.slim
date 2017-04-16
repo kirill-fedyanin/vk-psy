@@ -1,11 +1,11 @@
 h1 Запрос данных по участника группы
 
-= form_tag 'group_members.xlsx', method: 'post'
+= form_tag '/group_members.xlsx', method: :post
   div
     label Id группы (в адресной строке после vk.com/)
   div
     = text_field_tag :group_id
-  = submit_tag 'Скачать эксель'
+  = submit_tag 'Скачать эксель', data: { disable_with: 'Формируем документ' }
 
 #result
 
